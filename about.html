@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Independent Lead Generators – Gauteng-based lead generation experts delivering high-quality, cost-effective sales leads for Old Mutual, Discovery Health and businesses across South Africa." />
+    <title>About Us | Independent Lead Generators</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --blue: #0050ef;
+            --dark-blue: #0039b8;
+            --grey: #6c757d;
+            --smoke: #f8f9fa;
+            --white: #ffffff;
+            --text: #212529;
+        }
+        * { margin:0; padding:0; box-sizing:border-box; }
+        body { font-family: 'Inter', sans-serif; color: var(--text); line-height: 1.7; background: var(--white); }
+
+        h1, h2, h3 { font-family: 'Cinzel', Georgia, serif; font-weight: 700; letter-spacing: 0.5px; }
+
+        header {
+            position: fixed; top: 0; left: 0; right: 0;
+            background: rgba(0,0,0,0.78); backdrop-filter: blur(10px); z-index: 1000;
+            padding: 1rem 4%; display: flex; justify-content: space-between;
+            align-items: center; height: 90px;
+        }
+        .logo-img { height: 68px; width: auto; }
+        @media (max-width: 768px) { .logo-img { height: 62px; } }
+        @media (max-width: 480px) { .logo-img { height: 56px; } }
+
+        .hamburger { display: none; cursor: pointer; width: 44px; height: 44px;
+            flex-direction: column; justify-content: center; align-items: center; gap: 6px; }
+        .hamburger span { width: 28px; height: 3px; background: white; border-radius: 3px; }
+
+        @media (max-width: 992px) {
+            .hamburger { display: flex; }
+            nav ul { position: fixed; top: 90px; left: 0; right: 0;
+                background: rgba(0,0,0,0.98); max-height: calc(100vh - 90px); overflow-y: auto;
+                padding: 2rem 5%; flex-direction: column;
+                transform: translateY(-100%); opacity: 0; visibility: hidden;
+                transition: all 0.35s ease; }
+            nav ul.show { transform: translateY(0); opacity: 1; visibility: visible; }
+            nav ul li { padding: 0.9rem 0; text-align: center; }
+            nav ul a { font-size: 1.4rem; display: block; color: white; }
+            nav ul a:hover, nav ul a:active { color: var(--blue); }
+        }
+        nav ul { display: flex; gap: 2.5rem; list-style: none; }
+        nav a { color: white; text-decoration: none; font-weight: 500; font-size: 1.1rem; transition: color 0.25s; }
+        nav a:hover, nav a:active { color: var(--blue); }
+
+        /* HERO – text moved down on mobile */
+        .hero {
+            position: relative; height: 85vh; min-height: 620px;
+            background: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.65)), url('about-hero.jpg') center/cover no-repeat;
+            color: white; display: flex; align-items: center; text-align: center;
+        }
+        .hero .content {
+            max-width: 1100px; margin: 0 auto; padding: 0 5%;
+            position: relative; z-index: 2;
+        }
+        .hero h1 { font-size: 5.5rem; margin-bottom: 1.2rem; }
+        .hero p { font-size: 1.7rem; max-width: 900px; margin: 0 auto; opacity: 0.95; }
+
+        @media (max-width: 768px) {
+            .hero { align-items: flex-end; padding-bottom: 12vh; } /* pushes text down */
+            .hero h1 { font-size: 3.6rem; }
+            .hero p { font-size: 1.35rem; }
+        }
+        @media (max-width: 480px) {
+            .hero h1 { font-size: 3.2rem; }
+        }
+
+        .section { padding: 120px 5%; }
+        .section.alt { background: var(--smoke); }
+
+        /* ABOUT TEXT – heading now wraps perfectly on mobile */
+        .about-title {
+            font-size: 3.8rem;
+            color: var(--dark-blue);
+            margin-bottom: 2rem;
+            line-height: 1.2;
+        }
+        @media (max-width: 768px) {
+            .about-title { font-size: 2.8rem; }
+        }
+        @media (max-width: 480px) {
+            .about-title { font-size: 2.4rem; }
+        }
+
+        .values-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem; max-width: 1200px; margin: 0 auto;
+        }
+        .value-card {
+            background: white; padding: 2.5rem; border-radius: 16px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.08); text-align: center;
+        }
+        .value-card h3 { font-size: 1.8rem; color: var(--dark-blue); margin-bottom: 1rem; }
+
+        /* KPI SECTION – extra spacing on laptop & perfect on mobile */
+        .kpi-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 4rem 3rem;               /* ← extra vertical + horizontal space */
+            max-width: 1100px;
+            margin: 100px auto;
+            text-align: center;
+        }
+        @media (max-width: 768px) {
+            .kpi-grid { gap: 3.5rem 2rem; }
+        }
+        .kpi h3 { font-size: 3.2rem; color: var(--blue); margin-bottom: 0.5rem; }
+        .kpi p { color: var(--grey); font-size: 1.2rem; }
+
+        .cta {
+            background: linear-gradient(135deg, var(--blue), var(--dark-blue));
+            color: white; text-align: center; padding: 120px 5%;
+        }
+        .cta h2 { font-size: 3.2rem; margin-bottom: 1rem; }
+        .cta p { font-size: 1.4rem; max-width: 800px; margin: 0 auto 2.5rem; opacity: 0.95; }
+        .cta-btn { background: white; color: var(--blue); padding: 1.3rem 3.5rem;
+            font-size: 1.2rem; font-weight: 600; border-radius: 50px; text-decoration: none;
+            display: inline-block; transition: all 0.3s; }
+        .cta-btn:hover { transform: translateY(-5px); box-shadow: 0 20px 40px rgba(0,0,0,0.3); }
+
+        footer { background: var(--text); color: white; text-align: center; padding: 3rem 5%; }
+        footer a { color: var(--blue); text-decoration: none; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="index.html"><img src="Logo.jpg" alt="Independent Lead Generators" class="logo-img"></a>
+        <div class="hamburger"><span></span><span></span><span></span></div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="strategy.html">Our Strategy</a></li>
+                <li><a href="clients.html">Clients</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="content">
+            <h1>We Deliver Leads That Convert</h1>
+            <p>Gauteng-based specialists in high-quality, cost-effective lead generation for Old Mutual, Discovery Health and businesses across South Africa.</p>
+        </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="section">
+        <div style="max-width:1100px;margin:0 auto;text-align:center;">
+            <h2 class="about-title">Independent Lead Generators</h2>
+            <p style="font-size:1.3rem;color:var(--grey);max-width:900px;margin:0 auto 3rem;">
+                We are a Gauteng-based lead generation company that provides Social Media Marketing and targeted advertising services to companies of all sizes – including Old Mutual SA and Discovery Health. Our innovative sourcing methods help our clients grow their customer base while saving costs and maximising ROI.
+            </p>
+        </div>
+    </section>
+
+    <!-- VALUES -->
+    <section class="section alt">
+        <h2 style="text-align:center;font-size:3.5rem;color:var(--dark-blue);margin-bottom:4rem;">Our Core Values</h2>
+        <div class="values-grid">
+            <div class="value-card">
+                <h3>Transparency & Trust</h3>
+                <p>We believe in full honesty about costs, performance and results. Long-term partnerships are built on trust – and that’s exactly what we deliver, every single day.</p>
+            </div>
+            <div class="value-card">
+                <h3>Innovation & Expertise</h3>
+                <p>We stay ahead of the latest marketing trends and continuously improve our strategies to deliver the most effective, cutting-edge campaigns for our clients.</p>
+            </div>
+            <div class="value-card">
+                <h3>Client Success First</h3>
+                <p>Your business objectives are our priority. Every campaign is tailored to reach your exact target market with measurable, high-converting results.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- KPIs – now beautifully spaced -->
+    <section class="section">
+        <h2 style="text-align:center;font-size:3.5rem;color:var(--dark-blue);margin-bottom:4rem;">How We Measure Success</h2>
+        <div class="kpi-grid">
+            <div class="kpi"><h3>Cost-Efficiency</h3><p>Lower cost per qualified lead</p></div>
+            <div class="kpi"><h3>Speed</h3><p>Faster lead delivery cycles</p></div>
+            <div class="kpi"><h3>Growth</h3><p>Consistent client base expansion</p></div>
+            <div class="kpi"><h3>Satisfaction</h3><p>Happy clients & motivated team</p></div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta">
+        <h2>Ready to Grow Your Business?</h2>
+        <p>Let us show you how our proven, transparent lead generation system can deliver qualified sales opportunities – at the best possible value.</p>
+        <a href="contact.html" class="cta-btn">Get Your Free Lead Proposal</a>
+    </section>
+
+    <footer>
+        <p>© 2025 Independent Lead Generators – Gauteng, South Africa<br>
+        <a href="tel:+27">Call us</a> • <a href="mailto:info@independentleadgenerators.co.za">info@independentleadgenerators.co.za</a></p>
+    </footer>
+
+    <script>
+        document.querySelector('.hamburger').addEventListener('click', function() {
+            document.querySelector('nav ul').classList.toggle('show');
+        });
+    </script>
+</body>
+</html>

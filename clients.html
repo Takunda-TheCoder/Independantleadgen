@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Trusted by Old Mutual, Discovery Health and leading businesses across South Africa." />
+    <title>Clients & Partners | Independent Lead Generators</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --blue: #0050ef;
+            --dark-blue: #0039b8;
+            --grey: #6c757d;
+            --smoke: #f8f9fa;
+        }
+        * { margin:0; padding:0; box-sizing:border-box; }
+        body { font-family: 'Inter', sans-serif; color: #212529; line-height: 1.7; background: white; }
+
+        h1, h2, h3 { font-family: 'Cinzel', Georgia, serif; font-weight: 700; }
+
+        /* Header */
+        header {
+            position: fixed; top: 0; left: 0; right: 0;
+            background: rgba(0,0,0,0.78); backdrop-filter: blur(10px); z-index: 1000;
+            padding: 1rem 4%; display: flex; justify-content: space-between;
+            align-items: center; height: 90px;
+        }
+        .logo-img { height: 68px; width: auto; }
+
+        .hamburger { display: none; cursor: pointer; }
+        .hamburger span { width: 28px; height: 3px; background: white; display: block; margin: 6px 0; border-radius: 3px; }
+        @media (max-width: 992px) {
+            .hamburger { display: flex; flex-direction: column; }
+            nav ul { position: fixed; top: 90px; left: 0; right: 0; background: rgba(0,0,0,0.98);
+                     padding: 2rem 5%; flex-direction: column; transform: translateY(-100%); opacity: 0;
+                     transition: all 0.35s ease; }
+            nav ul.show { transform: translateY(0); opacity: 1; }
+        }
+        nav ul { display: flex; gap: 2.5rem; list-style: none; }
+        nav a { color: white; text-decoration: none; font-weight: 500; font-size: 1.1rem; }
+        nav a:hover { color: var(--blue); }
+
+        /* Hero */
+        .hero {
+            height: 85vh; min-height: 620px;
+            background: linear-gradient(rgba(0,0,0,0.58), rgba(0,0,0,0.68)), url('clients.jpg') center/cover no-repeat;
+            display: flex; align-items: center; text-align: center; color: white;
+        }
+        .hero h1 { font-size: 5.8rem; text-shadow: 0 4px 20px rgba(0,0,0,0.7); }
+        .hero p { font-size: 1.8rem; max-width: 900px; margin: 1.5rem auto 0; opacity: 0.95; }
+        @media (max-width: 768px) {
+            .hero { align-items: flex-end; padding-bottom: 12vh; }
+            .hero h1 { font-size: 3.6rem; }
+            .hero p { font-size: 1.35rem; }
+        }
+
+        .section { padding: 120px 5%; }
+        .section.alt { background: var(--smoke); }
+
+        /* Major Client Logos – FIXED & BALANCED */
+        .major-clients h2 {
+            font-size: 3.8rem; color: var(--dark-blue); text-align: center; margin-bottom: 5rem;
+        }
+        .logos {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 5rem 7rem;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem 0;
+        }
+        .logos img {
+            height: 130px;
+            width: auto;
+            object-fit: contain;
+            opacity: 0.88;
+            transition: all 0.4s ease;
+        }
+        .logos img:hover {
+            opacity: 1;
+            transform: scale(1.18);
+            filter: drop-shadow(0 10px 20px rgba(0,0,0,0.2));
+        }
+
+        /* Pull Liberty closer to Discovery */
+        .logos img:nth-child(3) { margin-left: -2rem; } /* Liberty */
+        @media (max-width: 1100px) { .logos img:nth-child(3) { margin-left: 0; } }
+
+        /* Testimonials */
+        .testimonials {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 3rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .testimonial {
+            background: white; padding: 3rem; border-radius: 20px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.09);
+            display: flex; flex-direction: column;
+        }
+        .testimonial p {
+            font-style: italic; font-size: 1.25rem; color: var(--grey);
+            margin-bottom: 2.5rem; flex-grow: 1;
+        }
+        .author {
+            display: flex; align-items: center; margin-top: auto;
+        }
+        .author img {
+            width: 110px; height: 110px; object-fit: contain;
+            margin-right: 1.5rem; padding: 12px; background: white;
+            border-radius: 18px; box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+
+        /* CTA & Footer */
+        .final-cta {
+            background: linear-gradient(135deg, var(--blue), var(--dark-blue));
+            color: white; text-align: center; padding: 130px 5%;
+        }
+        .final-cta h2 { font-size: 3.4rem; margin-bottom: 1rem; }
+        .final-btn {
+            background: white; color: var(--blue); padding: 1.4rem 4rem;
+            font-size: 1.3rem; font-weight: 600; border-radius: 50px;
+            text-decoration: none; display: inline-block;
+            transition: all 0.3s;
+        }
+        .final-btn:hover { transform: translateY(-8px); box-shadow: 0 25px 50px rgba(0,0,0,0.4); }
+
+        footer { background: #212529; color: white; text-align: center; padding: 3rem 5%; }
+        footer a { color: var(--blue); text-decoration: none; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="index.html"><img src="Logo.jpg" alt="Independent Lead Generators" class="logo-img"></a>
+        <div class="hamburger"><span></span><span></span><span></span></div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="strategy.html">Our Strategy</a></li>
+                <li><a href="clients.html">Clients</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div style="max-width:1100px;margin:0 auto;padding:0 5%;">
+            <h1>Our Clients</h1>
+            <p>Trusted by South Africa’s biggest brands and fastest-growing businesses</p>
+        </div>
+    </section>
+
+    <section class="section">
+        <h2 class="major-clients">Companies That Trust Us</h2>
+        <div class="logos">
+            <img src="old-mutual-logo.png" alt="Old Mutual">
+            <img src="discovery-logo.png" alt="Discovery Health">
+            <img src="liberty-logo.png" alt="Liberty">
+            <img src="momentum-logo.png" alt="Momentum">
+            <img src="sanlam-logo.png" alt="Sanlam">
+            <img src="fnb-logo.png" alt="FNB">
+        </div>
+    </section>
+
+    <section class="section alt">
+        <div style="text-align:center;max-width:1000px;margin:0 auto 5rem;">
+            <h2 style="font-size:3.8rem;color:var(--dark-blue);">What Our Clients Say</h2>
+        </div>
+        <div class="testimonials">
+            <div class="testimonial">
+                <p>“Best lead quality we’ve ever had. Cost per sale dropped by 42% in the first month.”</p>
+                <div class="author">
+                    <img src="old-mutual-logo.png" alt="Old Mutual">
+                    <div>
+                        <h4>Old Mutual Gauteng Branch</h4>
+                        <span>Senior Broker Team</span>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial">
+                <p>“Exclusive appointments that actually show up and close. Game changer.”</p>
+                <div class="author">
+                    <img src="discovery-logo.png" alt="Discovery Health">
+                    <div>
+                        <h4>Discovery Health Advisors</h4>
+                        <span>Johannesburg Region</span>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial">
+                <p>“Closed 18 solar installations from just 40 leads. Unreal ROI.”</p>
+                <div class="author">
+                    <img src="ecopower-logo.png" alt="EcoPower Solar">
+                    <div>
+                        <h4>EcoPower Solar</h4>
+                        <span>Renewable Energy Installers</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="final-cta">
+        <h2>Join South Africa’s Top Performers</h2>
+        <p>Get the same high-converting, exclusive leads that are growing businesses just like yours.</p>
+        <a href="contact.html" class="final-btn">Start Getting Leads Today</a>
+    </section>
+
+    <footer>
+        <p>© 2025 Independent Lead Generators – Gauteng, South Africa<br>
+        <a href="tel:+27">Call us</a> • <a href="mailto:info@independentleadgenerators.co.za">info@independentleadgenerators.co.za</a></p>
+    </footer>
+
+    <script>
+        document.querySelector('.hamburger').addEventListener('click', function() {
+            document.querySelector('nav ul').classList.toggle('show');
+        });
+    </script>
+</body>
+</html>
