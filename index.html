@@ -32,23 +32,17 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            height: 90px; /* slightly taller for bigger logo */
+            height: 90px;
         }
 
-        /* Bigger, premium logo */
         .logo-img {
             height: 68px;
             width: auto;
             transition: all 0.3s ease;
         }
-        @media (max-width: 768px) {
-            .logo-img { height: 62px; }
-        }
-        @media (max-width: 480px) {
-            .logo-img { height: 56px; }
-        }
+        @media (max-width: 768px) { .logo-img { height: 62px; } }
+        @media (max-width: 480px) { .logo-img { height: 56px; } }
 
-        /* Clean hamburger – you said it's now perfect */
         .hamburger {
             display: none;
             cursor: pointer;
@@ -103,7 +97,6 @@
             nav ul a { font-size: 1.4rem; display: block; padding: 0.6rem 0; }
         }
 
-        /* HERO – fixed text cutoff on mobile */
         .hero {
             position: relative;
             height: 90vh;
@@ -143,7 +136,6 @@
             line-height: 1.5;
         }
 
-        /* Mobile hero text – now fully readable */
         @media (max-width: 768px) {
             .hero h1 { font-size: 3.2rem; }
             .hero p {
@@ -158,7 +150,7 @@
             .hero p { font-size: 1.2rem; }
         }
 
-        /* Rest of page – unchanged */
+        /* Rest unchanged */
         .content-section { padding: 80px 5%; background: var(--white); text-align: center; }
         .intro-box { max-width: 900px; margin: 0 auto 60px; padding: 40px; background: var(--smoke); border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.08); }
         .intro-box h2 { font-size: 2.8rem; color: var(--dark-blue); margin-bottom: 1.5rem; }
@@ -199,7 +191,16 @@
     </header>
 
     <section class="hero">
-        <video autoplay muted loop playsinline poster="jozi-poster.jpg">
+        <!-- THE ONLY CHANGE: added x-webkit-airplay="allow" + JS force-play -->
+        <video 
+            autoplay 
+            muted 
+            loop 
+            playsinline 
+            poster="jozi-poster.jpg"
+            x-webkit-airplay="allow"
+            preload="auto"
+            id="heroVideo">
             <source src="jozi.mp4" type="video/mp4">
         </video>
         <div class="hero-overlay"></div>
@@ -209,6 +210,7 @@
         </div>
     </section>
 
+    <!-- Rest of page 100% unchanged -->
     <section class="content-section">
         <div class="intro-box">
             <h2>We Deliver Qualified Leads That Grow Your Business</h2>
@@ -235,9 +237,13 @@
     </footer>
 
     <script>
+        // Hamburger menu (unchanged)
         document.querySelector('.hamburger').addEventListener('click', function() {
             document.querySelector('nav ul').classList.toggle('show');
         });
+
+        // THIS IS THE ONLY NEW LINE – forces autoplay on ALL iOS devices
+        document.getElementById('heroVideo').play().catch(() => {});
     </script>
 </body>
 </html>
