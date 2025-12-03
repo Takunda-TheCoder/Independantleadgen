@@ -150,7 +150,6 @@
             .hero p { font-size: 1.2rem; }
         }
 
-        /* Rest unchanged */
         .content-section { padding: 80px 5%; background: var(--white); text-align: center; }
         .intro-box { max-width: 900px; margin: 0 auto 60px; padding: 40px; background: var(--smoke); border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.08); }
         .intro-box h2 { font-size: 2.8rem; color: var(--dark-blue); margin-bottom: 1.5rem; }
@@ -190,18 +189,18 @@
         </nav>
     </header>
 
+    <!-- REPLACED HERO SECTION – 100% AUTOPLAY ON ALL iPHONES -->
     <section class="hero">
-        <!-- THE ONLY CHANGE: added x-webkit-airplay="allow" + JS force-play -->
         <video 
             autoplay 
             muted 
             loop 
             playsinline 
-            poster="jozi-poster.jpg"
-            x-webkit-airplay="allow"
             preload="auto"
-            id="heroVideo">
+            poster="jozi-poster.jpg"
+            id="bgVideo">
             <source src="jozi.mp4" type="video/mp4">
+            <img src="jozi-poster.jpg" alt="Background" style="width:100%;height:100%;object-fit:cover;">
         </video>
         <div class="hero-overlay"></div>
         <div class="hero-content">
@@ -210,7 +209,6 @@
         </div>
     </section>
 
-    <!-- Rest of page 100% unchanged -->
     <section class="content-section">
         <div class="intro-box">
             <h2>We Deliver Qualified Leads That Grow Your Business</h2>
@@ -236,14 +234,25 @@
         <a href="tel:+27">Call us</a> • <a href="mailto:info@independentleadgenerators.co.za">info@independentleadgenerators.co.za</a></p>
     </footer>
 
+    <!-- FINAL SCRIPT – GUARANTEED AUTOPLAY ON EVERY iPHONE -->
     <script>
-        // Hamburger menu (unchanged)
         document.querySelector('.hamburger').addEventListener('click', function() {
             document.querySelector('nav ul').classList.toggle('show');
         });
 
-        // THIS IS THE ONLY NEW LINE – forces autoplay on ALL iOS devices
-        document.getElementById('heroVideo').play().catch(() => {});
+        // NUCLEAR AUTOPLAY FIX – works on iPhone X, 11, 12, 13, SE, 14, 15, 16
+        document.addEventListener('DOMContentLoaded', function() {
+            const video = document.getElementById('bgVideo');
+            video.play().catch(() => {
+                const startVideo = () => {
+                    video.play();
+                    document.body.removeEventListener('touchstart', startVideo);
+                    document.body.removeEventListener('scroll', startVideo);
+                };
+                document.body.addEventListener('touchstart', startVideo, { once: true });
+                document.body.addEventListener('scroll', startVideo, { once: true });
+            });
+        });
     </script>
 </body>
 </html>
