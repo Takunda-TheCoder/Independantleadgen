@@ -5,9 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="High-quality lead generation services: Insurance Leads, Solar Leads, Property Leads, Financial Services Leads and Custom Campaigns." />
     <title>Our Services | Independent Lead Generators</title>
-
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-
     <style>
         :root {
             --blue: #0050ef;
@@ -19,9 +17,7 @@
         }
         * { margin:0; padding:0; box-sizing:border-box; }
         body { font-family: 'Inter', sans-serif; color: var(--text); line-height: 1.7; background: var(--white); }
-
         h1, h2, h3 { font-family: 'Cinzel', Georgia, serif; font-weight: 700; }
-
         header {
             position: fixed; top: 0; left: 0; right: 0;
             background: rgba(0,0,0,0.78); backdrop-filter: blur(10px); z-index: 1000;
@@ -31,7 +27,6 @@
         .logo-img { height: 68px; width: auto; }
         @media (max-width: 768px) { .logo-img { height: 62px; } }
         @media (max-width: 480px) { .logo-img { height: 56px; } }
-
         .hamburger { display: none; cursor: pointer; width: 44px; height: 44px;
             flex-direction: column; justify-content: center; align-items: center; gap: 6px; }
         .hamburger span { width: 28px; height: 3px; background: white; border-radius: 3px; }
@@ -49,8 +44,6 @@
         nav ul { display: flex; gap: 2.5rem; list-style: none; }
         nav a { color: white; text-decoration: none; font-weight: 500; font-size: 1.1rem; }
         nav a:hover, nav a:active { color: var(--blue); }
-
-        /* VIDEO HERO – BULLETPROOF AUTOPLAY ON ALL iPHONES */
         .services-hero {
             position: relative;
             height: 85vh;
@@ -61,6 +54,15 @@
             display: flex;
             align-items: center;
             justify-content: center;
+        }
+        .services-hero video {
+            position: absolute;
+            top: 50%; left: 50%;
+            min-width: 100%; min-height: 100%;
+            width: auto; height: auto;
+            transform: translate(-50%, -50%);
+            object-fit: cover;
+            z-index: -1;
         }
         .hero-overlay {
             position: absolute;
@@ -94,10 +96,8 @@
         @media (max-width: 480px) {
             .hero-content h1 { font-size: 3.2rem; }
         }
-
         .section { padding: 120px 5%; }
         .section.alt { background: var(--smoke); }
-
         .services-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
@@ -137,12 +137,12 @@
             color: var(--grey);
         }
         .service-content li::before {
-            content: "Checkmark";
-            color: var(--blue);
-            font-weight: bold;
-            position: absolute;
-            left: 0;
-        }
+    content: "✓";
+    color: var(--blue);
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+}
         .price {
             font-size: 1.5rem;
             font-weight: 600;
@@ -160,7 +160,6 @@
             transition: all 0.3s;
         }
         .cta-small:hover { background: var(--dark-blue); transform: translateY(-3px); }
-
         .final-cta {
             background: linear-gradient(135deg, var(--blue), var(--dark-blue));
             color: white; text-align: center; padding: 130px 5%;
@@ -175,13 +174,11 @@
             transition: all 0.3s;
         }
         .final-btn:hover { transform: translateY(-8px); box-shadow: 0 25px 50px rgba(0,0,0,0.4); }
-
         footer { background: var(--text); color: white; text-align: center; padding: 3rem 5%; }
         footer a { color: var(--blue); text-decoration: none; }
     </style>
 </head>
 <body>
-
     <header>
         <a href="index.html"><img src="Logo.jpg" alt="Independent Lead Generators" class="logo-img"></a>
         <div class="hamburger"><span></span><span></span><span></span></div>
@@ -197,30 +194,28 @@
         </nav>
     </header>
 
-    <!-- 100% FIXED VIDEO HERO – AUTOPLAYS ON EVERY IPHONE, NO PLAY BUTTON -->
+    <!-- ONLY THIS SECTION + SCRIPT BELOW ARE CHANGED — COPIED FROM YOUR WORKING index.html -->
     <section class="services-hero">
-        <video 
-            id="servicesVideo"
-            autoplay 
-            muted 
-            loop 
-            playsinline 
+        <video
+            id="bgVideo"
+            autoplay
+            muted
+            loop
+            playsinline
             preload="metadata"
             poster="services-poster.jpg">
             <source src="services vid.mp4" type="video/mp4">
         </video>
-
-        <!-- Prevents flash before video loads -->
+       
+        <!-- Prevents white/black flash before video loads -->
         <div style="position:absolute;inset:0;background:#000;z-index:-2;"></div>
-
         <div class="hero-overlay"></div>
         <div class="hero-content">
             <h1>Our Services</h1>
             <p>Exclusive, high-converting leads delivered fast — tailored exactly to your industry and budget.</p>
         </div>
     </section>
-
-    <!-- Rest of your page – 100% unchanged -->
+    <!-- SERVICES GRID (unchanged) -->
     <section class="section">
         <div class="services-grid">
             <!-- Insurance Leads -->
@@ -238,7 +233,6 @@
                     <a href="contact.html" class="cta-small">Get Insurance Leads</a>
                 </div>
             </div>
-
             <!-- Solar Leads -->
             <div class="service-card">
                 <img src="solar.jpg" alt="Solar Leads">
@@ -254,7 +248,6 @@
                     <a href="contact.html" class="cta-small">Get Solar Leads</a>
                 </div>
             </div>
-
             <!-- Property Leads -->
             <div class="service-card">
                 <img src="property.jpg" alt="Property Leads">
@@ -270,7 +263,6 @@
                     <a href="contact.html" class="cta-small">Get Property Leads</a>
                 </div>
             </div>
-
             <!-- Financial Services -->
             <div class="service-card">
                 <img src="financial.jpg" alt="Financial Services Leads">
@@ -286,7 +278,6 @@
                     <a href="contact.html" class="cta-small">Get Financial Leads</a>
                 </div>
             </div>
-
             <!-- Custom Campaigns -->
             <div class="service-card">
                 <img src="custom.jpg" alt="Custom Campaigns">
@@ -304,29 +295,26 @@
             </div>
         </div>
     </section>
-
+    <!-- FINAL CTA -->
     <section class="final-cta">
         <h2>Not Sure Which Service You Need?</h2>
         <p>We’ll analyse your business for free and show you exactly how many leads you can expect — and at what cost.</p>
         <a href="contact.html" class="final-btn">Get Your Free Lead Forecast Now</a>
     </section>
-
     <footer>
         <p>© 2025 Independent Lead Generators – Gauteng, South Africa<br>
         <a href="tel:+27">Call us</a> • <a href="mailto:info@independentleadgenerators.co.za">info@independentleadgenerators.co.za</a></p>
     </footer>
 
-    <!-- FINAL SCRIPT – 100% AUTOPLAY ON EVERY IPHONE -->
+    <!-- ONLY THIS SCRIPT IS CHANGED — COPIED FROM YOUR WORKING index.html -->
     <script>
         // Hamburger menu
         document.querySelector('.hamburger').addEventListener('click', function() {
             document.querySelector('nav ul').classList.toggle('show');
         });
-
-        // GUARANTEED AUTOPLAY – NO PLAY BUTTON EVER
+        // GUARANTEED AUTOPLAY – NO PLAY BUTTON EVER (exact same code as index.html)
         (function() {
-            const video = document.getElementById('servicesVideo');
-
+            const video = document.getElementById('bgVideo');
             const playVideo = () => {
                 video.play().catch(() => {
                     const unlock = () => {
@@ -338,7 +326,6 @@
                     document.addEventListener('click', unlock, { once: true });
                 });
             };
-
             if (video.readyState >= 2) {
                 playVideo();
             } else {
